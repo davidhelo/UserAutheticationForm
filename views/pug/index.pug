@@ -1,0 +1,49 @@
+html
+  head
+    title #{title}
+    meta(name='description', content='Home page')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/public/style.css')
+  body
+    h1.title.center User authentication
+    hr
+    h2.center#pug-success-message Welcome! <br> Log-in or register a new user
+    p.center#pug-variable=message
+    
+    if showLogin
+      hr
+      h2.center Login
+      form(action='/login', method='post').center
+        div
+          label.formLabel Username:
+          input(type='text', name='username').formInput
+        div
+          label.formLabel Password:
+          input(type='password', name='password').formInput
+        div
+          input(type='submit', value='Log In').formButton
+          
+    if showRegistration
+      hr
+      h2.center Registration Form
+      form(action='/register', method='post').center#registrationForm
+        div
+          label.formLabel Username:
+          input(type='text', name='username').formInput
+        div
+          label.formLabel Password:
+          input(type='password', name='password').formInput
+        div
+        if userAlreadyRegistered 
+          p.center.errorText username already registered, please use other username
+        input(type='submit', value='Register').formButton
+
+    
+
+    if showSocialAuth
+      hr
+      div.center
+        h2.center Social Login
+        a(href='/auth/github').text.formButton Login with Github!
