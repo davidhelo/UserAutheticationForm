@@ -1,5 +1,6 @@
 'use strict';
 require('dotenv').config();
+const path = require("path");
 const express = require('express');
 const app = express();
 const myDB = require('./api/connection');
@@ -55,7 +56,7 @@ io.use(
 // set default engine
 app.engine('pug', require('pug').renderFile);
 app.set('view engine', 'pug');
-app.set('views', './views/pug');
+app.set('views', path.join(__dirname, "views/pug"));
 
 // initiailise passport and session
 app.use(passport.initialize());
