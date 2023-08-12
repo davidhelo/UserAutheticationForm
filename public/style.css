@@ -4,12 +4,10 @@ html, body {
   font-family: 'roboto', sans-serif;
   background-image: url('/public/images/common-bg.svg');
   background-size: cover;
-  margin-bottom: 3rem;
-  
 }
 
-form {
-  background-color: hsl(0, 0%, 100%);
+* {
+  box-sizing: border-box;
 }
 
 .errorText {
@@ -41,6 +39,9 @@ a.text {
 form {
   padding: 3px;
   width: 500px;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
 #messages { 
@@ -107,4 +108,26 @@ form {
   .formButton:active {
     background-color: black;
     color: white;
+  }
+
+  #welcomeMessage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    margin: 2rem;
+    width: 100%;
+    height: 300px;
+  }
+
+  #socialLogin {
+    margin-bottom: 4rem;
+  }
+
+  .profileContainer {
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }

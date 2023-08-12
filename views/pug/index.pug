@@ -18,11 +18,13 @@ html
       form(action='/login', method='post').center
         div
           label.formLabel Username:
-          input(type='text', name='username').formInput
+          input(type='text', name='username', required).formInput
         div
           label.formLabel Password:
-          input(type='password', name='password').formInput
+          input(type='password', name='password', required).formInput
         div
+          if invalidLoginUserPass
+            p.center.errorText Invalid username or password
           input(type='submit', value='Log In').formButton
           
     if showRegistration
@@ -31,19 +33,17 @@ html
       form(action='/register', method='post').center#registrationForm
         div
           label.formLabel Username:
-          input(type='text', name='username').formInput
+          input(type='text', name='username', required).formInput
         div
           label.formLabel Password:
-          input(type='password', name='password').formInput
+          input(type='password', name='password', required).formInput
         div
-        if userAlreadyRegistered 
-          p.center.errorText username already registered, please use other username
-        input(type='submit', value='Register').formButton
-
-    
+          if userAlreadyRegistered 
+            p.center.errorText username already registered, please use other username
+          input(type='submit', value='Register').formButton
 
     if showSocialAuth
       hr
-      div.center
+      div.center#socialLogin
         h2.center Social Login
         a(href='/auth/github').text.formButton Login with Github!
