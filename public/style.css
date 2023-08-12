@@ -25,12 +25,6 @@ html, body {
   margin-right: auto;
 }
 
-.login {
-  border: solid 2px #777;
-  width: 50%;
-  background-color: aliceblue;
-}
-
 a.text {
   text-decoration: none;
   letter-spacing: 1px;
@@ -42,6 +36,12 @@ form {
   background-color: hsl(0, 0%, 100%);
   border: 1px solid black;
   border-radius: 4px;
+}
+
+@media  (max-width: 600px) {
+  form {
+    width: 97%;
+  }
 }
 
 #messages { 
