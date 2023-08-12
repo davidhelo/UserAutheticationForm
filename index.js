@@ -8,7 +8,7 @@ const { ObjectID } = require('mongodb');
 const passport = require("passport");
 const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
-const routes = require('./routes.js');
+const routes = require('./api/routes.js');
 const auth = require('./auth.js');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
@@ -79,11 +79,10 @@ myDB(async client => {
   });
 });
 
-  
+app.use('/api/routes.js', routes);  
+
 // app.listen...
 const PORT = process.env.PORT || 3000;
 http.listen(PORT, () => {
   console.log('Listening on port ' + PORT);
 });
-
-module.exports = app;
