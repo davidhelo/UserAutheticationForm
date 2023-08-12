@@ -4,10 +4,7 @@ const express = require('express');
 const app = express();
 const myDB = require('./api/connection');
 const session = require("express-session");
-const { ObjectID } = require('mongodb');
 const passport = require("passport");
-const LocalStrategy = require('passport-local');
-const bcrypt = require('bcrypt');
 const routes = require('./api/routes.js');
 const auth = require('./api/auth.js');
 const http = require('http').createServer(app);
@@ -56,6 +53,7 @@ io.use(
 );
 
 // set default engine
+app.engine('pug', require('pug').renderFile);
 app.set('view engine', 'pug');
 app.set('views', './views/pug');
 
