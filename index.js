@@ -17,7 +17,8 @@ const URI = process.env.MONGO_URI;
 const store = new MongoStore({ url: URI });
 
 
-app.use('/public', express.static(process.cwd() + '/public'));
+// app.use('/public', express.static(process.cwd() + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

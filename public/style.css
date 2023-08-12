@@ -2,7 +2,7 @@
 
 html, body {
   font-family: 'roboto', sans-serif;
-  background-image: url('/public/images/common-bg.svg');
+  background-image: url('/images/common-bg.svg');
   background-size: cover;
 }
 
