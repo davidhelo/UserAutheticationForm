@@ -1,15 +1,10 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-  "name": "fcc-advanced-node-and-express",
-  "author": "http://github.com/JosephLivengood",
+  "name": "user-authentication-form",
+  "author": "http://github.com/davidhelo",
   "version": "0.0.1",
-  "description": "What am I about?",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "bcrypt": "~5.0.0",

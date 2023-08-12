@@ -2,14 +2,14 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const myDB = require('./connection');
+const myDB = require('./api/connection');
 const session = require("express-session");
 const { ObjectID } = require('mongodb');
 const passport = require("passport");
 const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
 const routes = require('./api/routes.js');
-const auth = require('./auth.js');
+const auth = require('./api/auth.js');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const passportSocketIo = require('passport.socketio');
@@ -82,7 +82,7 @@ myDB(async client => {
 app.use('/api/routes.js', routes);  
 
 // app.listen...
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5050;
 http.listen(PORT, () => {
   console.log('Listening on port ' + PORT);
 });
