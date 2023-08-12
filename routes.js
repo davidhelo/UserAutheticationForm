@@ -17,8 +17,9 @@ module.exports = function (app, myDataBase) {
       showLogin: true,
       showRegistration: true,
       showSocialAuth: true,
-      userAlreadyRegistered: Boolean(req.query.invalidUser)
-  });
+      userAlreadyRegistered: Boolean(req.query.invalidUser),
+      invalidLoginUserPass: Boolean(req.query.invalidLogin)
+    });
   });
 
   app.route('/auth/github').get(passport.authenticate('github'));
@@ -30,7 +31,7 @@ module.exports = function (app, myDataBase) {
   });
   
   //post request to /login
-  app.route('/login').post(passport.authenticate('local', { failureRedirect: '/' }), (req, res) => {
+  app.route('/login').post(passport.authenticate('local', { failureRedirect: '/?invalidLogin=true' }), (req, res) => {
     res.redirect('/profile');
   });
   
@@ -41,10 +42,12 @@ module.exports = function (app, myDataBase) {
     });
   
   app.route('/logout')
-    .get((req, res) => {
-      req.logout();
-      res.redirect('/');
-  });
+    .get(function(req, res) {
+      req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+      });
+    });
   
   app.route('/register')
     .post((req, res, next) => {
