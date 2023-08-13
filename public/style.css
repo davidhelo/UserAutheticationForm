@@ -4,6 +4,8 @@ html, body {
   font-family: 'roboto', sans-serif;
   background-image: url('/images/common-bg.svg');
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -12,6 +14,10 @@ html, body {
 
 .errorText {
   color: red;
+}
+
+a.text {
+  text-decoration: none;
 }
 
 .title {
@@ -23,11 +29,6 @@ html, body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-}
-
-a.text {
-  text-decoration: none;
-  letter-spacing: 1px;
 }
 
 form {
@@ -42,24 +43,6 @@ form {
   form {
     width: 97%;
   }
-}
-
-#messages { 
-  list-style-type: none;
-  text-align: left;
-  margin: 0;
-  padding: 0;
-  height: 20em;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-
-#messages li { 
-  padding: 5px 10px;
-}
-
-#messages li:nth-child(odd) { 
-  background: #eee;
 }
 
 .formLabel {
@@ -127,9 +110,80 @@ form {
   }
 
   .profileContainer {
-    height: 95vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .main-footer {
+    background: #000;
+    color: #fff;
+    width: 100%;
+  }
+  
+  .main-footer__upper {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  
+  
+  @media only screen and (max-width: 37.5em) {
+    .main-footer__upper {
+      display: block;
+    }
+  }
+  
+  .main-footer__row-1 {
+    order: 2;
+  }
+  
+  .main-footer__row-2 {
+    width: 40%;
+    order: 1;
+    max-width: 50rem;
+  }
+  
+  @media only screen and (max-width: 56.25em) {
+    .main-footer__row-2 {
+      width: 100%;
+    }
+  }
+  
+  .main-footer__short-desc {
+    margin-top: 1rem;
+    color: #eee;
+    font-size: 1rem;
+  }
+  
+  .main-footer__social-cont {
+    margin-top: 1rem;
+  }
+  
+  .main-footer__icon {
+    margin-right: 1rem;
+    width: 2.5rem;
+  }
+
+  .main-container {
+    max-width: 90%;
+    margin: auto;
+    width: 92%;
+  }
+
+  .heading-sm {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .main-footer__social-cont {
+    margin-top: 1rem;
+  }
+  
+  .main-footer__icon {
+    margin-right: 1rem;
+    width: 2.5rem;
   }
